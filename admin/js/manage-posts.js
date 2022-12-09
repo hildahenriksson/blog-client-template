@@ -18,11 +18,24 @@ async function fetchAllPosts() {
                 tags = post.tags.join(', ')
             }
 
+            let formatDate = [
+                postDate.getFullYear(),
+                ('0' + postDate.getMonth()).slice(-2),
+                ('0' + postDate.getDate()).slice(-2)
+            ]
+            let formatTime = [
+                ('0' + postDate.getHours()).slice(-2),
+                ('0' + postDate.getMinutes()).slice(-2),
+                ('0' + postDate.getSeconds()).slice(-2)
+            ]
+            console.log(formatDate);
+            console.log(formatTime);
+
             let newTr = document.createElement('tr');
             newTr.innerHTML = `<td>${post.title}</td>
                                 <td>${post.author}</td>
                                 <td>${tags}</td>
-                                <td>${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()} ${postDate.getHours()}:${postDate.getMinutes()}:${postDate.getSeconds()}</td>
+                                <td>${formatDate.join('-')} ${formatTime.join(':')}</td>
                                 <td>
                                     <button class="update-btn">Update</button>
                                     <button data-id="${post._id}" class="delete-btn">Delete</button>
@@ -56,8 +69,3 @@ async function deletePost(e) {
         console.log(error);
     }
 }
-
-
-// DETTA SKA LIGGA VID TAGS
-
-// ${post.tags.join(', ')}

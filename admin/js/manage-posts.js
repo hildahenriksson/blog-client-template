@@ -6,13 +6,22 @@ async function fetchAllPosts() {
         let posts = await response.json();
         console.log(posts);
 
+        
+
         for(let post of posts) {
             let postDate = new Date(post.date)
+
+            let tags = '';
+            if(post.tags == null){
+                tags = ''
+            } else {
+                tags = post.tags.join(', ')
+            }
 
             let newTr = document.createElement('tr');
             newTr.innerHTML = `<td>${post.title}</td>
                                 <td>${post.author}</td>
-                                <td>${post.tags.join(', ')}</td>
+                                <td>${tags}</td>
                                 <td>${postDate.getFullYear()}-${postDate.getMonth() + 1}-${postDate.getDate()} ${postDate.getHours()}:${postDate.getMinutes()}:${postDate.getSeconds()}</td>
                                 <td>
                                     <button class="update-btn">Update</button>
@@ -47,3 +56,8 @@ async function deletePost(e) {
         console.log(error);
     }
 }
+
+
+// DETTA SKA LIGGA VID TAGS
+
+// ${post.tags.join(', ')}

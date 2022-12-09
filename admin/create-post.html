@@ -6,8 +6,40 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>This page is required for the VG grade</h1>
+    <div id="content">
 
-    <script src="js/create-post.js"></script>
+        <h2>New blogpost</h2>
+        <div id="form-div">
+            <form id="new-post-form">
+                <div>
+                    <label for="title">Title</label><br>
+                    <input type="text" name="title" id="title-input"><br><br>
+                    <label for="author">Author</label><br>
+                    <input type="text" name="author" id="author-input"><br><br>
+                    <label for="tags">Tags</label><br>
+                    <select name="tags" id="tags-input" multiple>
+                        <option value="economics">Economics</option>
+                        <option value="politics">Politics</option>
+                        <option value="sport">Sport</option>
+                        <option value="food">Food</option>
+                        <option value="art">Art</option>
+                        <option value="cars">Cars</option>
+                        <option value="travel">Travel</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="content">Content</label><br>
+                    <textarea name="content" id="content-input" cols="30" rows="19"></textarea><br>
+                </div>
+                <div>
+                    <input id="submit" type="submit" value="Create post">
+                </div>
+            </form>
+            <a id="back-link" href="../admin/index.html">&#8592 Back</a>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="js/create-post.js"></script>
+    </div>
 </body>
 </html>

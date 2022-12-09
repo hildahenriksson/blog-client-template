@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-color: rgb(90, 185, 184); */
+    background-color: azure;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#content {
+    width: 95%;
+    margin: 10px auto;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(32, 41, 50);
+}
+
+#blogpage-link {
+    font-size: 1.2rem;
+    float: right;
+}
+
+h2 {
+    margin: 30px 0;
+}
+
+#new-post-link {
+    margin: 20px;
+}
+
+#plus-sign {
+    font-size: 1.3rem;
+
+}
+
+#posts-table {
+    width: 100%;
+    margin: 30px auto;
+    color: white;
+    table-layout: fixed;
+    box-shadow: 0 0 10px 5px rgb(32, 41, 50, 0.3);
+}
+
+table, tr, th, td {
+    border: 2px solid rgb(44, 56, 69);
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 20px;
+}
+
+#date-col {
+    width: 15%;
+}
+
+#action-col {
+    width: 12%;
+}
+
+
+th {
+    background-color: rgb(32, 41, 50);
+    text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(36, 46, 57);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgb(44, 56, 69);
+}
+
+
+.update-btn, .delete-btn, #new-post-link {
+    all: unset;
+    background-color: rgb(74, 144, 143);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1rem;
+    margin-left: 10px;
+}

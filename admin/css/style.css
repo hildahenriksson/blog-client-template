@@ -134,3 +134,7 @@ option {
 #back-link {
     color: rgb(74, 144, 143);
 }
+
+.red {
+    color: red;
+}

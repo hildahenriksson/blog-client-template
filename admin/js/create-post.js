@@ -8,6 +8,8 @@ jQuery('option').mousedown(function(e) {
 
 document.getElementById('new-post-form').addEventListener('submit', createPost);
 
+
+
 async function createPost(e) {
     e.preventDefault();
     
@@ -21,27 +23,68 @@ async function createPost(e) {
         selectedTags.push(option.value);
         }
     }
-    
+
+
     let formDataObject = {
-        title: titleInput,
-        author: authorInput,
-        content: contentInput,
+        title: titleInput.trim(),
+        author: authorInput.trim(),
+        content: contentInput.trim(),
         tags: selectedTags
     }
 
+    validateForm(formDataObject);
     
-    try {
-        let data = await fetch('https://blog-api-assignment.up.railway.app/posts', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify(formDataObject)
-        })
-        location.replace('../admin/index.html');
-        
+    if(checkValidation(formDataObject)) {
+
+        try {
+            let data = await fetch('https://blog-api-assignment.up.railway.app/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(formDataObject)
+            })
+            location.replace('../admin/index.html');
+            
+        }
+        catch(error) {
+            console.log(error);
+        }
     }
-    catch(error) {
-        console.log(error);
+    
+}
+
+
+function validateForm(object) {
+    for(var key in object) {
+        if(object[key] === "" || object[key].length === 0) {
+           console.log(key + " is blank");
+           addStarSymbol(key);
+           addErrorMessage();
+        } else {
+            removeStarSymbol(key);
+        }
     }
+}
+
+function addStarSymbol(label) {
+    document.getElementById(`${label}-label`).innerHTML = `${label.charAt(0).toUpperCase() + label.slice(1)}<span class="red">*</span>`;
+}
+
+function removeStarSymbol(label) {
+    document.getElementById(`${label}-label`).innerHTML = `${label.charAt(0).toUpperCase() + label.slice(1)}`;
+}
+
+function addErrorMessage() {
+    document.getElementById('error-message').innerHTML = 'Fields with * are required.'
+}
+
+function checkValidation(object) {
+    let check = true;
+    for(var key in object) {
+        if(object[key] === "" || object[key].length === 0) {
+           check = false;
+        }
+    }
+    return check;
 }

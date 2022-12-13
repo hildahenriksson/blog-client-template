@@ -2,10 +2,10 @@ post ();
 async function post (){
     try {
         const posts = document.querySelector('.posts');
-        const response = await fetch('https://blog-api-assignment.up.railway.app/posts')  //data för funktion fetch sparas i variabel respons        
+        const response = await fetch('https://blog-api-assignment.up.railway.app/posts')  
           .then(response => response.json())
         
-        for(let post of response) { //i response hämtas klustret av data. I post läggs varje del av klustret i tur och ordning
+        for(let post of response) { 
             console.log(post);
             let newdiv = document.createElement('div');
             newdiv.innerHTML =

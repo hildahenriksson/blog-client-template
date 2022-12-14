@@ -10,7 +10,7 @@ h2 {
     padding-bottom:3px;
 }
 
-a {
+.admin-link {
   color: #b22dc1;
   font-size: small;
   text-decoration: none;
@@ -28,3 +28,16 @@ a {
 
 
 
+/* POST-side */
+
+#post-wrapper {
+  margin: 50px 10%;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+#post-author {
+  font-weight: bold;
+}

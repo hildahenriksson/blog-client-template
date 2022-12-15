@@ -25,13 +25,12 @@ async function fetchPost (){
             ('0' + postDate.getSeconds()).slice(-2)
         ]
 
-        document.getElementById('post-wrapper').innerHTML =
-        `<a class="admin-link" href="/admin/index.html">Admin</a>
-        <h3 id="post-title">${response.title}</h3>
+        document.getElementById('post-wrapper').innerHTML +=
+        `<h3 id="post-title">${response.title}</h3>
         <i id="post-author">${response.author} |</i>
         <i id="post-date">${formatDate.join('-')} ${formatTime.join(':')}</i>
         <p id="post-content">${response.content}</p>
-        <i id="post-tags">${response.tags}</i><br>
+        <i id="post-tags">tags: ${response.tags}</i><br>
         <a href="index.html">&#8592 Back</a>`;
         
 
